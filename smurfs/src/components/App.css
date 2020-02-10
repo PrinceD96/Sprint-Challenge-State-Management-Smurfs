@@ -1,22 +1,29 @@
+* {
+  box-sizing: border-box;
+  
+}
+
 .App {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.form__container{
   /* border: 2px solid dodgerblue; */
-  width: 1000px;
+  text-align: center;
   margin: 20px auto;
+  padding: 20px;
+  max-width: 1000px;
 }
 
-form {
-  /* border: 2px solid darkred; */
-  display: flex;
-  flex-direction: column;
-  
-  
+.form__container {
+  /* border: 2px solid dodgerblue; */
+  margin: 20px auto;
 }
 
 form button {
   min-width: 130px;
+}
+
+.village__container {
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: baseline;
 }

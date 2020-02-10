@@ -1,13 +1,27 @@
 import React from 'react';
+import { Button, Card, Image } from 'semantic-ui-react'
 
 const Smurf = props => {
   return (
-    <div>
-      <h3>{props.name}</h3>
-      <p>Age: {props.age} years</p>
-      <p>Height: {props.height}</p>
-    </div>
+    <Card>
+      <Card.Content>
+        <Card.Header>{props.name}</Card.Header>
+        <Card.Meta>Age: {props.age} years</Card.Meta>
+        <Card.Description>Height: {props.height}</Card.Description>
+      </Card.Content>
+      <Card.Content extra>
+        <div className='ui two buttons'>
+          <Button basic color='green'>
+            Edit
+          </Button>
+          <Button basic color='red'>
+            Delete
+          </Button>
+        </div>
+      </Card.Content>
+    </Card>
   )
 }
 
 export default Smurf;
+

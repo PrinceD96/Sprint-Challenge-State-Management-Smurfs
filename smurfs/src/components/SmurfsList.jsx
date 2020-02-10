@@ -11,14 +11,15 @@ const SmurfsList = props => {
 
   return (
     <>
+      <h2>Smurfs Village</h2>
       {props.error ? (
         <div>{props.error}</div>
       ) : (
-          props.smurfs.map((smurf, index) =>
-
-            <Smurf key={index} {...smurf} />
-
-          )
+          <div className="village__container">
+            {props.smurfs.map((smurf, index) =>
+              <Smurf key={index} {...smurf} />
+            )}
+          </div>
         )}
     </>
   )

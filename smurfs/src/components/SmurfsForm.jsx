@@ -16,13 +16,15 @@ const SmurfsForm = props => {
 
   return (
     <div className="form__container">
-      <Segment inverted>
-        <Form onSubmit={handleSubmit} inverted>
+
+      <Segment >
+        <Form onSubmit={handleSubmit} >
+          <h3>Add your smurf</h3>
           <Form.Group widths='equal'>
             <Form.Input fluid type="text" name="name" value={props.input.name} placeholder="Smurf name" onChange={handleChange} />
             <Form.Input fluid type="number" name="age" value={props.input.age} placeholder="Smurf age" onChange={handleChange} />
             <Form.Input fluid type="text" name="height" value={props.input.height} placeholder="Smurf height" onChange={handleChange} />
-            <Button>Submit Smurf</Button>
+            <Button icon="add" />
           </Form.Group >
         </Form>
       </Segment>
