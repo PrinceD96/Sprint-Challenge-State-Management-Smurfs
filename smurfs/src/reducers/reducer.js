@@ -64,6 +64,33 @@ export const rootReducer = (state = initialState, action) => {
       };
 
 
+    //EDITING
+    case ACTIONS.EDIT_SMURF:
+      return {
+        ...state,
+        isFetchingData: true,
+        error: ""
+      };
+    case ACTIONS.EDIT_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        smurfFormInput: {
+          name: '',
+          age: '',
+          height: ''
+        },
+        isFetchingData: false,
+      };
+    case ACTIONS.EDIT_SMURF_ERROR:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
+      }
+
+
+
     //DELETING
     case ACTIONS.DELETE_SMURF:
       return {
