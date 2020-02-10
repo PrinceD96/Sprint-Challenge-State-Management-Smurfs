@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { handleSmurfsFormChange, handleSmurfsFormSubmit } from "../actions/action";
+import { Button, Form, Segment } from 'semantic-ui-react'
 
 const SmurfsForm = props => {
   const handleChange = e => {
@@ -14,14 +15,18 @@ const SmurfsForm = props => {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={props.input.name} placeholder="Smurf name" onChange={handleChange} />
-        <input type="number" name="age" value={props.input.age} placeholder="Smurf age" onChange={handleChange} />
-        <input type="text" name="height" value={props.input.height} placeholder="Smurf height" onChange={handleChange} />
-        <button>Submit Smurf</button>
-      </form>
-    </>
+    <div className="form__container">
+      <Segment inverted>
+        <Form onSubmit={handleSubmit} inverted>
+          <Form.Group widths='equal'>
+            <Form.Input fluid type="text" name="name" value={props.input.name} placeholder="Smurf name" onChange={handleChange} />
+            <Form.Input fluid type="number" name="age" value={props.input.age} placeholder="Smurf age" onChange={handleChange} />
+            <Form.Input fluid type="text" name="height" value={props.input.height} placeholder="Smurf height" onChange={handleChange} />
+            <Button>Submit Smurf</Button>
+          </Form.Group >
+        </Form>
+      </Segment>
+    </div>
   )
 }
 
