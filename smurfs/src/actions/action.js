@@ -8,6 +8,10 @@ export const ADD_SMURF = "ADD_SMURF";
 export const ADD_SMURF_SUCCESS = "ADD_SMURF_SUCCESS";
 export const ADD_SMURF_ERROR = "ADD_SMURF_ERROR";
 
+export const DELETE_SMURF = "DELETE_SMURF";
+export const DELETE_SMURF_SUCCESS = "DELETE_SMURF_SUCCESS";
+export const DELETE_SMURF_ERROR = "DELETE_SMURF_ERROR";
+
 export const HANDLE_INPUT = "HANDLE_INPUT"
 
 export const getData = () => dispatch => {
@@ -35,10 +39,14 @@ export const handleSmurfsFormSubmit = data => dispatch => {
   dispatch({ type: ADD_SMURF, payload: data });
   axios
     .post('http://localhost:3333/smurfs', data)
-    .then(res => {
-      console.log("handleSmurfsFormSubmit", res)
-      dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data })
-    })
+    .then(res => dispatch({ type: ADD_SMURF_SUCCESS, payload: res.data }))
     .catch(error => dispatch({ type: ADD_SMURF_ERROR, payload: "We hit a snag... Please come back later.", error }));
 }
 
+export const deleteSmurf = id => dispatch => {
+  dispatch({ type: DELETE_SMURF })
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data }))
+    .catch(error => dispatch({ type: DELETE_SMURF_ERROR, payload: error }))
+}

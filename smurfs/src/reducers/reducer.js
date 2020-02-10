@@ -19,7 +19,7 @@ export const rootReducer = (state = initialState, action) => {
         smurfsFormInput: action.payload
       };
 
-
+    // FETCHING 
     case ACTIONS.FETCH_DATA:
       return {
         ...state,
@@ -38,6 +38,8 @@ export const rootReducer = (state = initialState, action) => {
         error: action.payload
       };
 
+
+    // ADDING
     case ACTIONS.ADD_SMURF:
       return {
         ...state,
@@ -55,6 +57,26 @@ export const rootReducer = (state = initialState, action) => {
         }
       };
     case ACTIONS.ADD_SMURF_ERROR:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
+      };
+
+
+    //DELETING
+    case ACTIONS.DELETE_SMURF:
+      return {
+        ...state,
+        isFetchingData: true,
+        error: ""
+      };
+    case ACTIONS.DELETE_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+      };
+    case ACTIONS.DELETE_SMURF_ERROR:
       return {
         ...state,
         isFetchingData: false,

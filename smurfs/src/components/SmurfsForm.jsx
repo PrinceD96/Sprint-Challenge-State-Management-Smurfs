@@ -9,9 +9,9 @@ const SmurfsForm = props => {
   }
 
   const handleSubmit = e => {
-    e.preventDefault()
-    props.handleSmurfsFormSubmit(props.input)
-    // console.log("input", props.input)
+    e.preventDefault();
+    props.handleSmurfsFormSubmit(props.input);
+    console.log(`Smurf ${props.input.name} added`)
   }
 
   return (
